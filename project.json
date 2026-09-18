@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "dashboard_issue": 25,
   "goal": "今日やることを決め、終わったことを残し、毎日続けられる個人向けタスク・習慣サービス。",
   "categories": [
@@ -58,6 +58,7 @@
   "issue_states": [
     "READY",
     "ACTIVE",
+    "WAITING",
     "BLOCKED",
     "DONE"
   ],
@@ -288,5 +289,9 @@
       ],
       "manual_state": null
     }
-  ]
+  ],
+  "project": {
+    "title": "Issue Map | 個人向けタスク・習慣サービス",
+    "reference_project_url": "https://github.com/users/aiarranger/projects/3"
+  }
 }
