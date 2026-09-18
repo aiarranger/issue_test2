@@ -1,0 +1,292 @@
+{
+  "schema_version": 1,
+  "dashboard_issue": 25,
+  "goal": "今日やることを決め、終わったことを残し、毎日続けられる個人向けタスク・習慣サービス。",
+  "categories": [
+    {
+      "id": "UX",
+      "label": "UX"
+    },
+    {
+      "id": "APP",
+      "label": "App"
+    },
+    {
+      "id": "PLATFORM",
+      "label": "Platform"
+    },
+    {
+      "id": "DATA",
+      "label": "Data"
+    },
+    {
+      "id": "VERIFY",
+      "label": "QA"
+    },
+    {
+      "id": "OPS",
+      "label": "Ops"
+    }
+  ],
+  "milestones": [
+    {
+      "id": "M0",
+      "label": "今日を決める",
+      "order": 0
+    },
+    {
+      "id": "M1",
+      "label": "Doneを残す",
+      "order": 1
+    },
+    {
+      "id": "M2",
+      "label": "毎日くり返す",
+      "order": 2
+    },
+    {
+      "id": "M3",
+      "label": "1週間を見る",
+      "order": 3
+    },
+    {
+      "id": "M4",
+      "label": "1週間試す",
+      "order": 4
+    }
+  ],
+  "issue_states": [
+    "READY",
+    "ACTIVE",
+    "BLOCKED",
+    "DONE"
+  ],
+  "milestone_states": [
+    "NOT STARTED",
+    "BUILDING",
+    "BLOCKED",
+    "READY TO VERIFY",
+    "VERIFYING",
+    "VERIFIED"
+  ],
+  "issues": [
+    {
+      "number": 2,
+      "milestone": "M0",
+      "category": "UX",
+      "required": true,
+      "depends_on": [],
+      "manual_state": null
+    },
+    {
+      "number": 3,
+      "milestone": "M0",
+      "category": "APP",
+      "required": true,
+      "depends_on": [
+        2
+      ],
+      "manual_state": null
+    },
+    {
+      "number": 4,
+      "milestone": "M0",
+      "category": "PLATFORM",
+      "required": true,
+      "depends_on": [
+        2
+      ],
+      "manual_state": null
+    },
+    {
+      "number": 5,
+      "milestone": "M0",
+      "category": "VERIFY",
+      "required": true,
+      "verify_gate": true,
+      "depends_on": [
+        3,
+        4
+      ],
+      "manual_state": null
+    },
+    {
+      "number": 6,
+      "milestone": "M1",
+      "category": "UX",
+      "required": true,
+      "depends_on": [
+        5
+      ],
+      "manual_state": null
+    },
+    {
+      "number": 7,
+      "milestone": "M1",
+      "category": "APP",
+      "required": true,
+      "depends_on": [
+        6
+      ],
+      "manual_state": null
+    },
+    {
+      "number": 8,
+      "milestone": "M1",
+      "category": "PLATFORM",
+      "required": true,
+      "depends_on": [
+        6
+      ],
+      "manual_state": null
+    },
+    {
+      "number": 9,
+      "milestone": "M1",
+      "category": "APP",
+      "required": true,
+      "depends_on": [
+        7,
+        8
+      ],
+      "manual_state": null
+    },
+    {
+      "number": 10,
+      "milestone": "M1",
+      "category": "VERIFY",
+      "required": true,
+      "verify_gate": true,
+      "depends_on": [
+        9
+      ],
+      "manual_state": null
+    },
+    {
+      "number": 11,
+      "milestone": "M2",
+      "category": "UX",
+      "required": true,
+      "depends_on": [
+        10
+      ],
+      "manual_state": null
+    },
+    {
+      "number": 12,
+      "milestone": "M2",
+      "category": "APP",
+      "required": true,
+      "depends_on": [
+        11
+      ],
+      "manual_state": null
+    },
+    {
+      "number": 13,
+      "milestone": "M2",
+      "category": "PLATFORM",
+      "required": true,
+      "depends_on": [
+        11
+      ],
+      "manual_state": null
+    },
+    {
+      "number": 14,
+      "milestone": "M2",
+      "category": "DATA",
+      "required": true,
+      "depends_on": [
+        11
+      ],
+      "manual_state": null
+    },
+    {
+      "number": 15,
+      "milestone": "M2",
+      "category": "VERIFY",
+      "required": true,
+      "verify_gate": true,
+      "depends_on": [
+        12,
+        13,
+        14
+      ],
+      "manual_state": null
+    },
+    {
+      "number": 16,
+      "milestone": "M3",
+      "category": "UX",
+      "required": true,
+      "depends_on": [
+        15
+      ],
+      "manual_state": null
+    },
+    {
+      "number": 17,
+      "milestone": "M3",
+      "category": "APP",
+      "required": true,
+      "depends_on": [
+        16
+      ],
+      "manual_state": null
+    },
+    {
+      "number": 18,
+      "milestone": "M3",
+      "category": "PLATFORM",
+      "required": true,
+      "depends_on": [
+        16
+      ],
+      "manual_state": null
+    },
+    {
+      "number": 19,
+      "milestone": "M3",
+      "category": "VERIFY",
+      "required": true,
+      "verify_gate": true,
+      "depends_on": [
+        17,
+        18
+      ],
+      "manual_state": null
+    },
+    {
+      "number": 20,
+      "milestone": "M4",
+      "category": "UX",
+      "required": true,
+      "depends_on": [
+        19
+      ],
+      "manual_state": null
+    },
+    {
+      "number": 23,
+      "milestone": "M4",
+      "category": "OPS",
+      "required": true,
+      "depends_on": [
+        20
+      ],
+      "manual_state": null
+    },
+    {
+      "number": 24,
+      "milestone": "M4",
+      "category": "VERIFY",
+      "required": true,
+      "verify_gate": true,
+      "depends_on": [
+        23
+      ],
+      "manual_state": null
+    }
+  ]
+}
