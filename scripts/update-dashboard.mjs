@@ -33,10 +33,10 @@ async function listIssues() {
 }
 
 function issueStatus(status) {
-  return {READY:"Ready", ACTIVE:"Doing", BLOCKED:"Blocked", DONE:"Done"}[status] || status;
+  return {READY:"Ready", ACTIVE:"Doing", WAITING:"Waiting", BLOCKED:"Blocked", DONE:"Done"}[status] || status;
 }
 function issueIcon(status) {
-  return {READY:"○", ACTIVE:"🔨", BLOCKED:"⏳", DONE:"✅"}[status] || "";
+  return {READY:"○", ACTIVE:"🔨", WAITING:"⏳", BLOCKED:"⛔", DONE:"✅"}[status] || "";
 }
 function milestoneStatus(status) {
   return {
