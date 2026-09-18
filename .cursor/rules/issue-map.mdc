@@ -1,0 +1,10 @@
+---
+description: Route Issue creation and GitHub Project mapping requests to the repository Issue Map skill.
+alwaysApply: true
+---
+
+When the user asks "issueをつくって", "Issueを作って", "projectを作って", or "Project化して", read and follow:
+
+@.agents/skills/issue-map/SKILL.md
+
+If the request is clearly one isolated bug/fix, do not expand it into a multi-Issue map.
