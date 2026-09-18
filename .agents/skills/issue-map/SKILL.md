@@ -116,7 +116,8 @@ Use exactly:
 - `Blocked` — abnormal problem requiring intervention
 - `Done` — GitHub Issue is closed
 
-**Waiting is not Blocked.**
+**Waiting is not Blocked.** A normal dependency chain must not look like a pile of problems:
+on a fresh map, expect one `Ready`, the rest `Waiting`, and zero `Blocked`.
 
 Default deterministic rule:
 
@@ -264,6 +265,21 @@ Read `project.json` first.
 
 Do not redesign the Issue structure unless it is invalid.
 
+## Fast path
+
+Everything the GraphQL API can do is scripted:
+
+```bash
+export GH_TOKEN=$(gh auth token -u <owner>)   # account with push access + `project` scope
+node .agents/skills/issue-map/scripts/sync-project.mjs --owner <owner> --repo <repo> [--project-number <n>] [--dry-run]
+```
+
+It is idempotent and prints the remaining browser-only steps. Then follow
+`reference/phase-b-runbook.md` §2 for those steps (Column by / Swimlanes / Group by / view order),
+and §5 for the completion checklist.
+
+The rest of this section describes the target state the script and runbook produce.
+
 ## Authentication
 
 Prefer GitHub CLI when available.
@@ -380,7 +396,16 @@ Board columns by Status.
 ### 5. Board | Phase
 Board columns by Phase.
 
-If the CLI/API cannot create the desired view configuration, use GitHub UI/browser automation for the view setup. Do not omit the primary Map view merely because field creation via CLI is easier.
+### Known API limits (2026-09)
+
+- `createProjectV2View` / `updateProjectV2View` accept only name, layout, filter and visible fields.
+  **Column by, Swimlanes, Group by, Sort and view order are UI-only.** Set them in the browser
+  (View button → change → Save view; tab ▾ → Move view) — see `reference/phase-b-runbook.md`.
+- A new Board view always starts with Status columns.
+- A custom field named `Milestone` collides with the built-in field; use `Phase`.
+- When replacing Status options, pass existing option `id`s or item values are wiped.
+
+Do not omit the primary Map view merely because the CLI cannot finish it; finish it in the UI and verify with the GraphQL read query in the runbook.
 
 ---
 
